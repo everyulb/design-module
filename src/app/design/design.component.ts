@@ -7,7 +7,7 @@ import { DataSharingService } from '../data-sharing.service';
   styleUrls: ['./design.component.css']
 })
 export class DesignComponent implements OnInit {
-  dataFetched: boolean = false;
+  // dataFetched: boolean = false;
 
   constructor(private data: DataSharingService) { 
   }
@@ -19,7 +19,7 @@ export class DesignComponent implements OnInit {
       console.log(f);
       this.formData = f;
       console.log(this.formData);
-      this.dataFetched = true;
+      // this.dataFetched = true;
     });
   }
 
