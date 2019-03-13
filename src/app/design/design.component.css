@@ -1,0 +1,29 @@
+.box-wrapper {
+    height: 50vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 30% 50% 20%;
+}
+
+.data-wrapper {
+    margin: 0.5rem;
+    border: 1px solid black;
+    height: 100%;
+}
+
+.output-wrapper {
+    margin: 0.5rem;
+    border: 1px solid black;
+    height: 100%;
+}
+
+.formula-wrapper {
+    margin: 0.5rem;
+    border: 1px solid black;
+    height: 100%;
+}
+
+p {
+    margin: 0.3rem;
+}
+

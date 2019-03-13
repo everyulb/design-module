@@ -1,0 +1,73 @@
+<div class="container">
+  <form>
+    <div class="form-group">
+      <label for="model-select">Select Model</label>
+      <select class="form-control" id="model-select" 
+        [(ngModel)] = "formData.selectedModel" 
+        (ngModelChange)="handleModelSelect($event)"
+        name="model-select">
+        <option *ngFor="let model of models" [ngValue]="model">{{model.name}}</option>
+      </select>
+    </div>
+  </form>
+
+  <!-- General Data Form -->
+  <form>
+    <h4>Generic Data Entry</h4>
+    <div class="form-group">
+      <label>Number of Wards</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Name of Villages in Gram Panchayat</label>
+      <input type="text" [(ngModel)]="formData.nameOfGramPanchayat" name="nameOfGramPanchayat" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Number of Villages in Gram Panchayat</label>
+      <input type="text" [(ngModel)]="formData.numberOfVillages" name="xdsd" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Legislative Assembly Constituency</label>
+      <input type="text" [(ngModel)]="formData.legislativeAssembly" name="xsd" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Population (as per census 2011)</label>
+      <input type="text" [(ngModel)]="formData.population" name="xsd" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Number of household(as per census 2011)</label>
+      <input type="text" [(ngModel)]="formData.numberOfHouseholds" name="xc" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Peak Floating population (in a month)</label>
+      <input type="text" [(ngModel)]="formData.peakFloatingPopulation" name="xsdd" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Area of Panchayat</label>
+      <input type="text" [(ngModel)]="formData.panchayatArea" name="x" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Terrain of village</label>
+      <input type="text" [(ngModel)]="formData.villageTerrain" name="x" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Feature of Panchayat</label>
+      <select class="form-control" 
+        [(ngModel)] = "formData.selectedFeature" 
+        (ngModelChange)="handleFeatureSelect($event)"
+        name="model-select">
+        <option *ngFor="let feature of features" [ngValue]="feature">{{feature.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Any special scheme/prize for GP</label>
+      <select class="form-control" 
+        [(ngModel)] = "formData.selectedScheme" 
+        (ngModelChange)="handleSchemeSelect($event)"
+        name="model-select">
+        <option *ngFor="let scheme of schemes" [ngValue]="scheme">{{scheme.name}}</option>
+      </select>
+    </div>
+    <button type="submit" (click) = "submitForm()" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+<div class="box-wrapper" *ngIf="dataFetched | async">
+  <div class="data-wrapper">
+    <h4>Baseline Data</h4>
+    <p>Model: {{ formData.selectedModel }}</p>
+    <p>Feature: {{ formData.feature }}</p>
+    <p>Scheme: {{ formData.scheme }}</p>
+    <p>Gram Panchayat Name: {{ formData.nameOfGramPanchayat }}</p>
+    <p>Number of Villages: {{ formData.numberOfVillages}}</p>
+    <p>Population: {{ formData.population }}</p>
+    <p>Number of Households: {{ formData.numberOfHouseholds }}</p>
+    <p>Area of Panchayat: {{ formData.panchayatArea }}</p>
+  </div>
+  <div class="output-wrapper">
+    <h4>Output</h4>
+    <p>XXX: 1000</p>
+    <p>XXX: 1000</p>
+    <p>XXX: 1000</p>
+  </div>
+  <div class="formula-wrapper">
+    <h4>Formulas</h4>
+    <p>XXX: 1000</p>
+    <p>XXX: 1000</p>
+    <p>XXX: 1000</p>
+  </div>
+</div>
