@@ -7,7 +7,6 @@ import { DataSharingService } from '../data-sharing.service';
   styleUrls: ['./design.component.css']
 })
 export class DesignComponent implements OnInit {
-  // dataFetched: boolean = false;
 
   constructor(private data: DataSharingService) { 
   }
@@ -15,11 +14,9 @@ export class DesignComponent implements OnInit {
   formData: any = {name: ''};
   
   ngOnInit() {
-    this.data.getFormData().subscribe( (f: any) => {
-      console.log(f);
+    this.data.currentForm.subscribe( (f: any) => {
       this.formData = f;
       console.log(this.formData);
-      // this.dataFetched = true;
     });
   }
 

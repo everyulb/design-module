@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataSharingService } from '../data-sharing.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-data-collection-form',

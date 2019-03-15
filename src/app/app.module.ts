@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { DataCollectionFormComponent } from './data-collection-form/data-collection-form.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DesignComponent } from './design/design.component';
 import { DataSharingService } from './data-sharing.service';
 
@@ -28,7 +28,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DataSharingService],
   bootstrap: [AppComponent]

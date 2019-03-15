@@ -1,5 +1,10 @@
 <div class="container">
-  <form>
+  <!-- <form>
+    
+  </form> -->
+
+  <!-- General Data Form -->
+  <form (ngSubmit)="submitForm()">
     <div class="form-group">
       <label for="model-select">Select Model</label>
       <select class="form-control" id="model-select" 
@@ -9,10 +14,6 @@
         <option *ngFor="let model of models" [ngValue]="model">{{model.name}}</option>
       </select>
     </div>
-  </form>
-
-  <!-- General Data Form -->
-  <form>
     <h4>Generic Data Entry</h4>
     <div class="form-group">
       <label>Number of Wards</label>
@@ -68,6 +69,6 @@
         <option *ngFor="let scheme of schemes" [ngValue]="scheme">{{scheme.name}}</option>
       </select>
     </div>
-    <button type="submit" (click) = "submitForm()" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
