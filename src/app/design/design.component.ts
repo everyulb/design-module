@@ -17,7 +17,7 @@ export class DesignComponent implements OnInit {
     this.data.currentForm.subscribe( (f: any) => {
       this.formData = f;
       console.log(this.formData);
-    });
+    }).unsubscribe();
   }
 
 }

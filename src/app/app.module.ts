@@ -6,16 +6,21 @@ import { DataCollectionFormComponent } from './data-collection-form/data-collect
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DesignComponent } from './design/design.component';
 import { DataSharingService } from './data-sharing.service';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   component: DataCollectionFormComponent
+  // },
+  // {
+  //   path: 'design',
+  //   component: DesignComponent
+
+  // },
   {
     path: '',
-    component: DataCollectionFormComponent
-  },
-  {
-    path: 'design',
-    component: DesignComponent
-
+    component: HomeComponent
   }
 ];
 
@@ -23,7 +28,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     DataCollectionFormComponent,
-    DesignComponent
+    DesignComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
