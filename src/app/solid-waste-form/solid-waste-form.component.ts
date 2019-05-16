@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-solid-waste-form',
@@ -8,10 +9,47 @@ import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 })
 export class SolidWasteFormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, public api: ApiService) { }
 
   swm: FormGroup;
   villageNames: string = '';
+  features: Array<any> = [
+    {
+      name: 'Normal Village',
+      value: 1
+    },
+    {
+      name: 'Religious Place',
+      value: 2
+    },
+    {
+      name: 'Tourist Place',
+      value: 3
+    },
+    {
+      name: 'On National Highway - within 1km',
+      value: 4
+    },
+    {
+      name: 'Peri-Urban Village',
+      value: 5
+    },
+  ]
+
+  schemes: Array<any> = [
+    {
+      name: 'Panchayat under antyodaya mission',
+      value: 1
+    },
+    {
+      name: 'Panchayat selected for performance grant',
+      value: 2
+    },
+    {
+      name: 'Panchayat has won any prize',
+      value: 3
+    },
+  ]
 
   ngOnInit() {
     this.initForm();
@@ -27,15 +65,17 @@ export class SolidWasteFormComponent implements OnInit {
       }),
       wards: new FormControl(null, { updateOn: 'blur'}),
       villages_number: new FormControl(0),
-      village_names: this.fb.array([]),
+      villages_names: this.fb.array([]),
       la_constituency: new FormControl(null , { updateOn: 'blur'}),
       population: new FormControl(null , { updateOn: 'blur'}),
       household_numbers: new FormControl(null , { updateOn: 'blur'}),
       peak_floating_population: new FormControl(null , { updateOn: 'blur'}),
       panchayat_area: new FormControl(null , { updateOn: 'blur'}),
       village_terrain: new FormControl(null , { updateOn: 'blur'}),
-      panchayat_features: this.fb.array([]),
-      panchayat_specials: this.fb.array([]),
+      panchayat_features: new FormControl(),
+      // pFeatures: new FormControl(),
+      panchayat_specials: new FormControl(),
+      // pSpecials: new FormControl(),
       villageName: new FormControl('')
     })
   }
@@ -48,12 +88,17 @@ export class SolidWasteFormComponent implements OnInit {
 
   submitForm(): void {
     console.log('Submitted: ', this.swm.value);
+    this.api.post('solidwastemanagement/', this.swm.value).subscribe((res) => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    })
   }
 
   addVillage(): void {
     const v = this.swm.get('villageName').value;
     if(v.length > 0) {
-      const villages = this.swm.get('village_names').value;
+      const villages = this.swm.get('villages_names').value;
       if(!villages.includes(v) && villages.length < this.swm.get('villages_number').value){
         villages.push(v);
         this.showVillageNames();
@@ -62,7 +107,7 @@ export class SolidWasteFormComponent implements OnInit {
   }
 
   showVillageNames(): void {
-    this.villageNames = this.swm.get('village_names').value.join(', ');
+    this.villageNames = this.swm.get('villages_names').value.join(', ');
     console.log(this.villageNames);
   }
 

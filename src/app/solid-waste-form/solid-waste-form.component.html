@@ -23,12 +23,21 @@
           placeholder="longitude">
       </div>
     </div>
-    <div class="form-group">
-      <label for="wards">Number of Wards</label>
-      <input type="text" class="form-control" 
-        formControlName="wards"
-        name="wards"
-        placeholder="Number of Wards">
+    <div class="form-row">
+      <div class="col">
+        <label for="wards">Number of Wards</label>
+        <input type="text" class="form-control" 
+          formControlName="wards"
+          name="wards"
+          placeholder="Number of Wards">
+      </div>
+      <div class="col">
+        <label for="household">Number of household</label>
+        <input type="text" class="form-control" 
+          formControlName="household_numbers"
+          name="household"
+          placeholder="Number of households">
+      </div>
     </div>
     <div class="form-row">
       <div class="col-md-5">
@@ -95,6 +104,24 @@
           <option value="hilly" >Hilly</option>
           <option value="plain">Plain</option>
         </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <label for="features" class="block-label">Panchayat Features</label>
+        <mat-form-field>
+          <mat-select formControlName="panchayat_features" multiple>
+            <mat-option *ngFor="let f of features" [value]="f.value">{{f.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <label for="features" class="block-label">Panchayat Specials</label>
+        <mat-form-field>
+          <mat-select formControlName="panchayat_specials" multiple>
+            <mat-option *ngFor="let s of schemes" [value]="s.value">{{s.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
     </div>
   </form>
