@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DesignComponent } from './design/design.component';
 import { DataSharingService } from './data-sharing.service';
 import { HomeComponent } from './home/home.component';
+import { SolidWasteFormComponent } from './solid-waste-form/solid-waste-form.component';
 
 const routes: Routes = [
   // {
@@ -29,7 +30,8 @@ const routes: Routes = [
     AppComponent,
     DataCollectionFormComponent,
     DesignComponent,
-    HomeComponent
+    HomeComponent,
+    SolidWasteFormComponent
   ],
   imports: [
     BrowserModule,

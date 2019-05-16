@@ -7,14 +7,19 @@
   </div>
   <div class="sub-section">
     <div class="create-button-wrapper">
-      <button>Create <i class="fas fa-caret-down"></i></button>
+      <button (click)="openForm('swm')">Solid Waste Management</button>
     </div>
+    <!-- <div class="create-button-wrapper">
+      <button>Create <i class="fas fa-caret-down"></i></button>
+    </div> -->
     <!-- <div class="options">
       <div class="option-item" *ngFor="let option of createOptions">
         <button>{{ option.name }}</button>
       </div>
     </div> -->
   </div>
-  <div class="main-section"></div>
+  <div class="main-section">
+    <app-solid-waste-form *ngIf="currentForm === 'swm'"></app-solid-waste-form>
+  </div>
   <div class="helper-section"></div>
 </div>

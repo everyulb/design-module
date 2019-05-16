@@ -1,0 +1,102 @@
+<div class="container">
+  <form [formGroup]="swm">
+    <div class="form-group">
+      <label for="gramPanchayat">Gram Panchayat Name</label>
+      <input type="text" class="form-control" 
+        formControlName="gram_panchayat"
+        name="gramPanchayat"
+        placeholder="Gram Panchayat Name">
+    </div>
+    <div class="form-row" formGroupName="gram_panchayat_geo_tag">
+      <div class="col">
+        <label for="latitude">Latitude</label>
+        <input type="text" class="form-control" 
+          formControlName="latitude"
+          name="latitude"
+          placeholder="Latitude">
+      </div>
+      <div class="col">
+        <label for="longitude">Longitude</label>
+        <input type="text" class="form-control" 
+          formControlName="longitude"
+          name="longitude"
+          placeholder="longitude">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="wards">Number of Wards</label>
+      <input type="text" class="form-control" 
+        formControlName="wards"
+        name="wards"
+        placeholder="Number of Wards">
+    </div>
+    <div class="form-row">
+      <div class="col-md-5">
+        <label for="villages">Number of villages</label>
+        <input type="text" class="form-control" 
+          formControlName="villages_number"
+          name="villages"
+          placeholder="Number of villages">
+      </div>
+      <div class="col-md-5">
+        <label for="villageName">Name of village</label>
+        <input type="text" class="form-control" 
+          formControlName="villageName"
+          name="villageName"
+          placeholder="Enter village name">
+      </div>
+      <div class="col-md-2 btn-wrapper">
+        <button type="button" class="btn btn-primary" (click)="addVillage()">Add Village</button>
+      </div>
+    </div>
+    <div class="form-row" *ngIf="villageNames.length > 0">
+      <div class="col">
+        <label for="village-names">Villages</label>
+        <p>{{ villageNames }}</p>
+      </div>
+    </div>
+    <!-- Add village Names Here -->
+    <div class="form-group">
+      <label for="constituency">Legislative Assembly Constituency</label>
+      <input type="text" class="form-control" 
+        formControlName="la_constituency"
+        name="constituency"
+        placeholder="Constituency Name">
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <label for="population">Population</label>
+        <input type="text" class="form-control" 
+          formControlName="population"
+          name="population"
+          placeholder="population">
+      </div>
+      <div class="col">
+        <label for="peakPopulation">Peak Floating Population</label>
+        <input type="text" class="form-control" 
+          formControlName="peak_floating_population"
+          name="peakPopulation"
+          placeholder="Peak Floating Population">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <label for="Panchayat_area">Panchayat Area</label>
+        <input type="text" class="form-control" 
+          formControlName="panchayat_area"
+          name="Panchayat_area"
+          placeholder="Panchayat Area">
+      </div>
+      <div class="col">
+        <label for="villageTerrain">Village Terrain</label>
+        <select class="form-control" 
+          formControlName="village_terrain"
+          name="villageTerrain">
+          <option value="hilly" >Hilly</option>
+          <option value="plain">Plain</option>
+        </select>
+      </div>
+    </div>
+  </form>
+  <button class="btn btn-primary submit" (click)="submitForm()">Submit</button>
+</div>
