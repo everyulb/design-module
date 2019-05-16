@@ -90,6 +90,7 @@ export class SolidWasteFormComponent implements OnInit {
     console.log('Submitted: ', this.swm.value);
     this.api.post('solidwastemanagement/', this.swm.value).subscribe((res) => {
       console.log(res);
+      alert('Form Submitted');
     }, err => {
       console.log(err);
     })
